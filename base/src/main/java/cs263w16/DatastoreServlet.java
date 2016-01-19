@@ -20,7 +20,12 @@ public class DatastoreServlet extends HttpServlet {
 	  int argsCnt = req.getParameterMap().size();
       String keyname = req.getParameter("keyname");
       String value = req.getParameter("value");
+	
+	  
 	  DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+	  MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
+      syncCache.setErrorHandler(ErrorHandlers.getConsistentLogAndContinue(Level.INFO)); 
+	  
 	  if(argsCnt == 0){
 		    resp.getWriter().println("<b>Datastore:</b><br>");
 		    Query query = new Query("TaskData");
@@ -33,6 +38,13 @@ public class DatastoreServlet extends HttpServlet {
                     keynames.add(entity.getKey().getName());
                 }
             }
+			resp.getWriter().println("<br><b>Memcache:</b><br>");
+            for (String k : keynames) {
+                String cached = (String) syncCache.get(k);
+                if (cached != null) {
+                    resp.getWriter().println(k + ": " + cached + "<br>");
+                }
+            }
 		 
 	  }
 	  else if(argsCnt == 1 && keyname != null && value == null){
@@ -41,7 +53,12 @@ public class DatastoreServlet extends HttpServlet {
 		     try{
 				  entity = datastore.get(entkey);
 				  value = (String) entity.getProperty("value");
-				  resp.getWriter().println(keyname + ": " + value + " (Datastore)<br>");
+				  String cached = (String) syncCache.get(keyname);
+				   if (value != null && cached == null) {
+                    resp.getWriter().println(keyname + ": " + value + " (Datastore)<br>");
+                } else if (value != null && cached != null) {
+                    resp.getWriter().println(keyname + ": " + value + " (Both)<br>");
+                }
 			 }   
 			 catch (EntityNotFoundException e) {
                   resp.getWriter().println("(Neither)<br>");
@@ -58,9 +75,10 @@ public class DatastoreServlet extends HttpServlet {
             entity.setProperty("date", new Date());
             entity.setProperty("value", value);
             datastore.put(entity);
-            //syncCache.put(keyname, value);
+            syncCache.put(keyname, value);
             // print Stored KEY and VALUE in Datastore
             resp.getWriter().println("Stored " + keyname + " and " + value + " in Datastore<br>");
+			resp.getWriter().println("Stored " + keyname + " and " + value + " in Memcache<br>");
 	  }
 	  else{
 		   resp.getWriter().println("Can't recognize the parameters.");
