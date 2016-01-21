@@ -1,0 +1,36 @@
+ Volume in drive C is Windows8_OS
+ Volume Serial Number is 28E7-A7A1
+
+ Directory of C:\Users\bayyo_000.SOULHSU\Documents\cs263\gae\cs263basproj\base\target\base-1.0-SNAPSHOT\WEB-INF\lib
+
+01/20/2016  05:45 PM    <DIR>          .
+01/20/2016  05:45 PM    <DIR>          ..
+01/18/2016  02:23 PM            14,765 aopalliance-repackaged-2.4.0-b31.jar
+01/12/2016  12:44 PM        17,636,363 appengine-api-1.0-sdk-1.9.30.jar
+01/18/2016  02:23 PM           173,037 hk2-api-2.4.0-b31.jar
+01/18/2016  02:23 PM           179,705 hk2-locator-2.4.0-b31.jar
+01/18/2016  02:23 PM           101,088 hk2-utils-2.4.0-b31.jar
+01/18/2016  02:23 PM            39,822 jackson-annotations-2.5.4.jar
+01/18/2016  02:23 PM           229,999 jackson-core-2.5.4.jar
+01/18/2016  02:23 PM         1,144,035 jackson-databind-2.5.4.jar
+01/18/2016  02:23 PM            28,849 jackson-jaxrs-base-2.5.4.jar
+01/18/2016  02:23 PM            16,689 jackson-jaxrs-json-provider-2.5.4.jar
+01/18/2016  02:23 PM            32,606 jackson-module-jaxb-annotations-2.5.4.jar
+01/18/2016  02:23 PM           714,194 javassist-3.18.1-GA.jar
+01/18/2016  02:23 PM            26,366 javax.annotation-api-1.2.jar
+01/18/2016  02:23 PM             5,951 javax.inject-2.4.0-b31.jar
+01/18/2016  02:23 PM           115,534 javax.ws.rs-api-2.0.1.jar
+01/18/2016  02:23 PM           163,417 jersey-client-2.22.1.jar
+01/18/2016  02:23 PM           696,004 jersey-common-2.22.1.jar
+01/18/2016  02:23 PM            64,787 jersey-container-servlet-core-2.22.1.jar
+01/18/2016  02:23 PM            69,919 jersey-entity-filtering-2.22.1.jar
+01/18/2016  02:23 PM           971,278 jersey-guava-2.22.1.jar
+01/18/2016  02:23 PM            72,738 jersey-media-jaxb-2.22.1.jar
+01/18/2016  02:23 PM            21,706 jersey-media-json-jackson-2.22.1.jar
+01/18/2016  02:23 PM           951,633 jersey-server-2.22.1.jar
+01/17/2016  03:39 AM           414,240 jstl-1.2.jar
+01/18/2016  02:23 PM            20,235 osgi-resource-locator-1.0.1.jar
+01/20/2016  05:45 PM                 0 test.txt
+01/18/2016  02:23 PM            63,777 validation-api-1.1.0.Final.jar
+              27 File(s)     23,968,737 bytes
+               2 Dir(s)  264,023,359,488 bytes free
